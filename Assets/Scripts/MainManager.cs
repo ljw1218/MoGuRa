@@ -1,4 +1,6 @@
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
@@ -29,12 +31,14 @@ public class MainManager : MonoBehaviour
 
     public void OnClickEasy()
     {
-        GameData.selectedMode = GameData.gameMode.Easy;
+        GameData.isHard = false;
+        SceneManager.LoadScene(GameData.strGameScene);
     }
 
     public void OnClickHard()
     {
-        GameData.selectedMode = GameData.gameMode.Hard;
+        GameData.isHard = true;
+        SceneManager.LoadScene(GameData.strGameScene);
     }
 
     public void OnClickExit()
