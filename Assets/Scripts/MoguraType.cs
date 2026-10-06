@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class MoleType
+[System.Serializable]
+public class MoguraType
 {
     public Sprite imgIdle;
     public Sprite imgHit;

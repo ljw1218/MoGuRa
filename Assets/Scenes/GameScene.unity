@@ -482,7 +482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 219644906}
-  - component: {fileID: 219644905}
+  - component: {fileID: 219644907}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -490,18 +490,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &219644905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 219644904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42fa3d275f85c604687365d113cfbaae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MoguraSpawner
 --- !u!4 &219644906
 Transform:
   m_ObjectHideFlags: 0
@@ -517,6 +505,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219644907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219644904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42fa3d275f85c604687365d113cfbaae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoguraSpawner
+  types:
+  - imgIdle: {fileID: 21300000, guid: f00d37e1ba61939489a4432bfb4c4d5c, type: 3}
+    imgHit: {fileID: 21300000, guid: d63dd751f269a004ca717d6b71f37d5f, type: 3}
+    score: 1
+    weight: 5
+  - imgIdle: {fileID: 21300000, guid: f1a6e57adfaab2043bfe0b7706424ca2, type: 3}
+    imgHit: {fileID: 21300000, guid: 0d5820a110e980646b0b48dd91b1a30f, type: 3}
+    score: 3
+    weight: 1
+  - imgIdle: {fileID: 21300000, guid: a8136e57c1d155d4a98c3438cc702b7f, type: 3}
+    imgHit: {fileID: 21300000, guid: 1debd73f87bb7ee45b65f2fb718d71f1, type: 3}
+    score: -2
+    weight: 2
 --- !u!1 &293927619
 GameObject:
   m_ObjectHideFlags: 0
