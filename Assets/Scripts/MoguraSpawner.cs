@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,6 +16,7 @@ public class MoguraSpawner : MonoBehaviour
     float interval = 0.6f;
     private Coroutine loop;
     private float time = 0;
+    private float timeMargin = 1f;
 
     private void Update()
     {
@@ -34,6 +36,7 @@ public class MoguraSpawner : MonoBehaviour
     }
     public void StartSpawning()
     {
+        time = 0;
         loop = StartCoroutine(SpawnLoop());
     }
 
@@ -45,12 +48,13 @@ public class MoguraSpawner : MonoBehaviour
 
     private IEnumerator SpawnLoop()
     {
-        while(time <= GameData.gameMaxTime)
+        while(time+timeMargin < GameData.gameMaxTime)
         {
             yield return new WaitForSeconds(interval);
 
             MoguraSlot slot = PickFreeSlot();
-            
+            if (slot != null)
+                slot.Pop(PickType());
         }
     }
     private MoguraSlot PickFreeSlot()
@@ -64,5 +68,21 @@ public class MoguraSpawner : MonoBehaviour
         if (freeSlot.Count == 0)
             return null;
         return freeSlot[Random.Range(0, freeSlot.Count)];
+    }
+
+    private MoguraType PickType()
+    {
+        int total = 0;
+        foreach (MoguraType t in types)
+            total += t.weight;
+
+        int rand = Random.Range(0, total);
+        foreach(MoguraType t in types)
+        {
+            if (rand < t.weight)
+                return t;
+            rand -= t.weight;
+        }
+        return types[0];
     }
 }

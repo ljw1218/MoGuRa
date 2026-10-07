@@ -11,22 +11,21 @@ public class MainManager : MonoBehaviour
 
     void Start()
     {
-        MainPanel.transform.localScale = Vector3.one;
-        SelectPanel.transform.localScale = Vector3.zero;
+        MainPanel.gameObject.SetActive(true);
         HelpPanel.gameObject.SetActive(false);
+        SelectPanel.gameObject.SetActive(false);
     }
 
     public void OnClickStart()
     {
-        MainPanel.transform.localScale = Vector3.zero;
-        SelectPanel.transform.localScale = Vector3.one;
+        MainPanel.gameObject.SetActive(false);
+        SelectPanel.gameObject.SetActive(true);
     }
     
     public void OnClickHelp()
     {
-        MainPanel.transform.localScale = Vector3.zero;
+        MainPanel.gameObject.SetActive(false);
         HelpPanel.gameObject.SetActive(true);
-        HelpPanel.transform.localScale = Vector3.one;
     }
 
     public void OnClickEasy()
@@ -43,8 +42,8 @@ public class MainManager : MonoBehaviour
 
     public void OnClickExit()
     {
-        MainPanel.transform.localScale = Vector3.one;
-        SelectPanel.transform.localScale = Vector3.zero;
         HelpPanel.gameObject.SetActive(false);
+        SelectPanel.gameObject.SetActive(false);
+        MainPanel.gameObject.SetActive(true);
     }
 }
